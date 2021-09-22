@@ -13,8 +13,11 @@ use JSON::XS;
 use utf8;
 #use Data::Dumper;
 
+use Compress::Zlib;
+
 my$S;
 my%clientBuf;
+my $ZBuff;
 
 my%sn2Rate=(
     1=>10,
@@ -30,10 +33,11 @@ sub logg
 sub newClient
 {
     my$c=$S->accept();
+    binmode  $c, ":bytes";
     $c->blocking(0);
     return unless $c;
     logg "+client #".fileno($c)." ".inet_ntoa((sockaddr_in $c->peername())[1]);
-    send $c,"\r\n",0;#only small message
+   # send $c,"\r\n",0;#only small message
     $c->setsockopt(IPPROTO_TCP,TCP_KEEPIDLE,100);
     $c->setsockopt(IPPROTO_TCP,TCP_KEEPINTVL,30);
     $c->setsockopt(IPPROTO_TCP,TCP_KEEPCNT,5);
@@ -67,15 +71,14 @@ sub processClientReq
     {
         dropClient($c);
     }
-    #print "dt= ".$dt;
+    my $res=Compress::Zlib::memGunzip($dt);
+    #print "dt= ".$res;
     ## начинаем цикл если все в одном файле 
-  foreach my $wdt (split(/\n+/,$dt)){
+  foreach my $wdt (split(/\n+/,$res)){
     $clientBuf{$c}[0]->incr_parse($wdt);
-
     my$obj;
     my$ee=eval{$obj=$clientBuf{$c}[0]->incr_parse();1};
-   #  print Dumper $obj;
-     
+   #  print Dumper $obj;     
     unless($ee)
     {
         my$msg="wrong json <$wdt>: $@";
@@ -95,14 +98,15 @@ sub processClientReq
         dropClient($c);
     }
  } 
-   ### заканчиваем  
+   ### заканчиваем  цикл
 }
 
 sub sendReply
 {
-    my($c)=@_;
-    my$bytes=send$c,$clientBuf{$c}[1],0;
-    if(length($clientBuf{$c}[1])==$bytes)
+     my($c)=@_;
+     my $wrd=  Compress::Zlib::memGzip($clientBuf{$c}[1]);
+     my$bytes=send$c,$wrd,0;
+    if(length($wrd)==$bytes)
     {
         $clientBuf{$c}[1]='';
         EPW::setFDH($c,\&processClientReq,undef,\&clientErr,undef)
@@ -120,11 +124,13 @@ sub reply
    logg ">c#".fileno($c)."[$pref]: $dt";
    $dt.="\r\n";
    if(length($clientBuf{$c}[1]))
-   {
+   {   
         $clientBuf{$c}[1].=$dt;
    }else
-   {
-        my$bytes=send$c,$dt,0;
+   {  
+    #  print "dt = $dt\n";
+      my $wrd=  Compress::Zlib::memGzip($dt);
+        my$bytes=send$c,$wrd,0;
         if($bytes<length$dt)
         {
             $clientBuf{$c}[1]=$dt;
@@ -163,6 +169,7 @@ sub process
 sub verify
 {
     my($c,$point,$ccode)=@_;
+    print Dumper $ccode;
     my$result;
     unless($ccode=~/^cl(?:b|\d\d)\d{7,}/)
     {
@@ -271,9 +278,9 @@ sub close_onFile
 open O,'>>test.log';
 select+((select O),$|=1)[0];
 
-$S=new IO::Socket::INET(Listen=>3,ReuseAddr=>1,LocalPort=>1212) or die "bindErr: $!";
+$S=new IO::Socket::INET(Listen=>3,ReuseAddr=>1,LocalPort=>1213) or die "bindErr: $!";
 
-print "port: 1212";
+print "port: 1213";
 
 EPW::setFDH($S,\&newClient,undef,undef);
 EPW::loo();
