@@ -22,7 +22,7 @@ elsif($dig>$big_mass[$#big_mass]){$index= $big_mass[$#big_mass]; }
 else{
 ## находим нужный элемент. заодно замеряем нагрузку на статичном массиве 
  my $r = timethese( -5, {
-    DiggInArray => sub{ $index=get_index($dig,\@big_mass,0,$#big_mass); print "RESULT: $dig near ".$big_mass[$index]."  [index = $index]  \n"; $cnt=0;}
+    DiggInArray => sub{ $index=get_index($dig,\@big_mass,0,$#big_mass); $cnt=0;}
 } );
  cmpthese $r;
 }
