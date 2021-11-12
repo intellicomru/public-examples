@@ -92,5 +92,3 @@ Host: $host\n\n$query_string\n";
     }
  return \%Res;   
 }
-#GET /web-programming/index.html HTTP/1.1
-#https://flagstudio.ru/blog/http-metody-status-cody-zagolovky
