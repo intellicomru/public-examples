@@ -21,9 +21,10 @@ my $proc = Async->new(sub {
        return  Dumper $res;
     });
 
-
+my @ww;
 while (1) {
   print "Wait http request : The time is now ", scalar(localtime), "\n";
+  push(@ww,time);
   my $e;
   if ($proc->ready) {
     if ($e = $proc->error) {
@@ -31,6 +32,7 @@ while (1) {
     } else {
       my $rr= $proc->result;
       print "The result of the get $host  is: $rr \n";
+      print "We got timestamps :".join(" ; ",@ww);
     }
     undef $proc;
     last;
@@ -39,7 +41,7 @@ while (1) {
   sleep 1; # One thing we could do is to take nap.
 }
 
-print "End Load\n";
+print "\nEnd Load\n";
 
 sub http_get{
 my ($host, $path, $query, $timeout) = @_;
