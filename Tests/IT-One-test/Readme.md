@@ -148,7 +148,10 @@ CREATE TABLE log (
  CREATE INDEX log_address_idx ON log USING hash (address);
 
 ```
-заполняем данными : 
+
+заполняем данными скриптом из каталога куда все сложили: 
+cd /var/www/
+[parse.pl](https://github.com/intellicomru/public-examples/blob/main/Tests/IT-One-test/parse.pl"скрипт parse.pl") [out.zipl](https://github.com/intellicomru/public-examples/blob/main/Tests/IT-One-test/out.zip"скрипт parse.pl") 
 
 
 
