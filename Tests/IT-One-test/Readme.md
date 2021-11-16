@@ -151,7 +151,7 @@ CREATE TABLE log (
 
 заполняем данными скриптом из каталога куда все сложили: 
 cd /var/www/
-[parse.pl](https://github.com/intellicomru/public-examples/blob/main/Tests/IT-One-test/parse.pl"скрипт parse.pl") [out.zipl](https://github.com/intellicomru/public-examples/blob/main/Tests/IT-One-test/out.zip"скрипт parse.pl") 
+[parse.pl](https://github.com/intellicomru/public-examples/blob/main/Tests/IT-One-test/parse.pl ) [out.zipl](https://github.com/intellicomru/public-examples/blob/main/Tests/IT-One-test/out.zip  ) 
 
 
 
