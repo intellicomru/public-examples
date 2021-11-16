@@ -7,6 +7,8 @@
 
 Завели виртуалку в облаке яндекса. Для простоты выбрали Дебиан
 
+#### поскольку инфраструктуры не было предоставлено, то процесс был следующий:  ####
+
 ![Виртуалка в облаке](https://github.com/intellicomru/public-examples/blob/main/Tests/IT-One-test/cloud.jpg)
  1. Обновим Debian  
 apt-get -y update  
