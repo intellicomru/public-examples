@@ -2,8 +2,11 @@
 
 
 #### Выполнить разбор файла почтового лога, залить данные в БД и организовать поиск по адресу получателя. ####
+Парсинг данных [parse.pl](https://github.com/intellicomru/public-examples/blob/main/Tests/IT-One-test/parse.pl )   
 
-Результат http://51.250.17.18//cgi-bin/itone.pl
+Поиск через веб форму:  [itone.pl](https://github.com/intellicomru/public-examples/blob/main/Tests/IT-One-test/cgi-bin/itone.pl )  
+  
+  http://51.250.17.18//cgi-bin/itone.pl
 
 #### поскольку инфраструктуры не было предоставлено, то процесс был следующий:  ####
 
@@ -155,7 +158,7 @@ CREATE TABLE log (
 
 заполняем данными скриптом из каталога куда все сложили:  
 cd /var/www/  
-[parse.pl](https://github.com/intellicomru/public-examples/blob/main/Tests/IT-One-test/parse.pl ) [out.zipl](https://github.com/intellicomru/public-examples/blob/main/Tests/IT-One-test/out.zip  )   
+[parse.pl](https://github.com/intellicomru/public-examples/blob/main/Tests/IT-One-test/parse.pl ) [out.zip](https://github.com/intellicomru/public-examples/blob/main/Tests/IT-One-test/out.zip  )   
 
 Все можно пользоваться веб формой для поиска по емайл :  
 Например [так](http://51.250.17.18/cgi-bin/itone.pl?search=xmdnwgppabwp%40gmail.com)  
