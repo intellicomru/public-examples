@@ -8,7 +8,7 @@
 
 Поиск через веб форму:  [itone.pl](https://github.com/intellicomru/public-examples/blob/main/Tests/IT-One-test/cgi-bin/itone.pl )  
   
-  http://51.250.17.18//cgi-bin/itone.pl
+  http://51.250.17.18/cgi-bin/itone.pl
 
 #### поскольку инфраструктуры не было предоставлено, то процесс был следующий:  ####
 
