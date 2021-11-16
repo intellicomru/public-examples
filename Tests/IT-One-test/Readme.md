@@ -149,9 +149,13 @@ CREATE TABLE log (
 
 ```
 
-заполняем данными скриптом из каталога куда все сложили: 
-cd /var/www/
-[parse.pl](https://github.com/intellicomru/public-examples/blob/main/Tests/IT-One-test/parse.pl ) [out.zipl](https://github.com/intellicomru/public-examples/blob/main/Tests/IT-One-test/out.zip  ) 
+заполняем данными скриптом из каталога куда все сложили:  
+cd /var/www/  
+[parse.pl](https://github.com/intellicomru/public-examples/blob/main/Tests/IT-One-test/parse.pl ) [out.zipl](https://github.com/intellicomru/public-examples/blob/main/Tests/IT-One-test/out.zip  )   
+
+Все можно пользоваться веб формой для поиска по емайл :  
+Например [так](http://51.250.17.18/cgi-bin/itone.pl?search=xmdnwgppabwp%40gmail.com)  
+
 
 
 
