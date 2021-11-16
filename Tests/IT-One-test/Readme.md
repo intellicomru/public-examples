@@ -2,7 +2,8 @@
 
 
 #### Выполнить разбор файла почтового лога, залить данные в БД и организовать поиск по адресу получателя. ####
-Парсинг данных [parse.pl](https://github.com/intellicomru/public-examples/blob/main/Tests/IT-One-test/parse.pl )   
+Парсинг данных  на вход принимает путь до zip файла с логами. 
+[parse.pl](https://github.com/intellicomru/public-examples/blob/main/Tests/IT-One-test/parse.pl )   < путь до zip файла с логами>
 
 Поиск через веб форму:  [itone.pl](https://github.com/intellicomru/public-examples/blob/main/Tests/IT-One-test/cgi-bin/itone.pl )  
   
