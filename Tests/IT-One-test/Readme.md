@@ -127,7 +127,7 @@ install JSON
 ```
 
 #### драйвера для связи перла и базы #### 
-sudo apt-get install libpq-dev
+sudo apt-get install libpq-dev  
 apt-get install libdbd-pg-perl
 
 
