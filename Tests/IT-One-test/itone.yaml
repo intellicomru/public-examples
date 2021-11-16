@@ -1,0 +1,16 @@
+IT::ONE:
+   connect_info:
+    - dbi:Pg:dbname=itone;host=localhost;port=5432
+    - itone
+    - 1234567890
+    -   AutoCommit: 1
+        disable_sth_caching: 1
+        name_sep: .
+        pg_enable_utf8: 1
+        pg_server_prepare: 0
+        quote_char: '"'
+
+encoding: UTF-8
+tmp_dir: /tmp/
+
+fqdn: itone
