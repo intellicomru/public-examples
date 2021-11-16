@@ -95,14 +95,14 @@ Ver Cluster Port Status Owner    Data directory              Log file
 ```
 
 sudo -u postgres psql  
-CREATE ROLE otus LOGIN PASSWORD '1234567890';  
-CREATE DATABASE otus;  
- ALTER DATABASE otus OWNER TO otus;  
+CREATE ROLE itone LOGIN PASSWORD '1234567890';  
+CREATE DATABASE itone;  
+ ALTER DATABASE itone OWNER TO itone;  
  \q  
  
  --После этого нужно добавить для этого пользователя строчку в файл   
  /etc/postgresql/11/main/pg_hba.conf   
- local   all             otus                             md5 
+ local   all             itone                             md5 
  
 sudo systemctl stop postgresql@11-main     
 sudo systemctl start postgresql@11-main  
