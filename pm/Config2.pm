@@ -1,4 +1,4 @@
-package Admin::Config2;
+package Config2;
 
 use uni::perl qw/:dumper/;
 use YAML::XS 'LoadFile';

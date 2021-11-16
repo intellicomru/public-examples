@@ -1,11 +1,11 @@
-package Admin::pm::mydb;
+package mydb;
 
 use uni::perl qw| :dumper |;
 use utf8;
 use DBI;
 use Time::HiRes;
 
-use Admin::Config2;
+use Config2;
  
 sub new {  
  my ( $class, $config,$dbname ) = @_;

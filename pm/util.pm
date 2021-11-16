@@ -1,4 +1,4 @@
-package Admin::pm::util;
+package util;
 
 use utf8;
 use strict;
