@@ -57,7 +57,7 @@ sub t1{
 
 ';
 
-my $srch=$V::CGI{search};
+my $srch=lc($V::CGI{search});
  $srch =~ s/\'/\'\'/g;
   $srch =~ s/\s//g;
 if($srch !~/\@/){
