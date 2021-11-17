@@ -114,6 +114,7 @@ my $sql = "select
        $i++;
        if($i>100){last}
    } 
+      $res .="<tr height=2><td colspan=3 align=center><hr witdh=100  align=center></td></tr>";
    if($i>100){last}
 }
 $res .="</table>";
