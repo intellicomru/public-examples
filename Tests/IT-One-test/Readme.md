@@ -8,7 +8,7 @@
 
 Поиск через веб форму:  [itone.pl](https://github.com/intellicomru/public-examples/blob/main/Tests/IT-One-test/cgi-bin/itone.pl )  
   
-  http://51.250.17.18/cgi-bin/itone.pl
+  http://51.250.20.24/cgi-bin/itone.pl
 
 #### поскольку инфраструктуры не было предоставлено, то процесс был следующий:  ####
 
@@ -163,7 +163,7 @@ cd /var/www/
 [parse.pl](https://github.com/intellicomru/public-examples/blob/main/Tests/IT-One-test/parse.pl ) [out.zip](https://github.com/intellicomru/public-examples/blob/main/Tests/IT-One-test/out.zip  )   
 
 Все можно пользоваться веб формой для поиска по емайл :  
-Например [так](http://51.250.17.18/cgi-bin/itone.pl?search=xmdnwgppabwp%40gmail.com)  
+Например [так](http://51.250.20.24/cgi-bin/itone.pl?search=xmdnwgppabwp%40gmail.com)  
 
 
 
